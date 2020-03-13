@@ -764,32 +764,32 @@ THE SOFTWARE. */
     tag.src = src;
   }
 
-  function injectCss() {
-    var css = // iframe blocker to catch mouse events
+  var css = // iframe blocker to catch mouse events
               '.vjs-youtube .vjs-iframe-blocker { display: none; }' +
               '.vjs-youtube.vjs-user-inactive .vjs-iframe-blocker { display: block; }' +
               '.vjs-youtube .vjs-poster { background-size: cover; }' +
               '.vjs-youtube-mobile .vjs-big-play-button { display: none; }';
 
-    var head = document.head || document.getElementsByTagName('head')[0];
+  // function injectCss() {
+  //   var head = document.head || document.getElementsByTagName('head')[0];
 
-    var style = document.createElement('style');
-    style.type = 'text/css';
+  //   var style = document.createElement('style');
+  //   style.type = 'text/css';
 
-    if (style.styleSheet){
-      style.styleSheet.cssText = css;
-    } else {
-      style.appendChild(document.createTextNode(css));
-    }
+  //   if (style.styleSheet){
+  //     style.styleSheet.cssText = css;
+  //   } else {
+  //     style.appendChild(document.createTextNode(css));
+  //   }
 
-    head.appendChild(style);
-  }
+  //   head.appendChild(style);
+  // }
 
   Youtube.apiReadyQueue = [];
 
   if (typeof document !== 'undefined'){
     loadScript('https://www.youtube.com/iframe_api', apiLoaded);
-    injectCss();
+    // injectCss();
   }
 
   // Older versions of VJS5 doesn't have the registerTech function
@@ -798,4 +798,9 @@ THE SOFTWARE. */
   } else {
     videojs.registerComponent('Youtube', Youtube);
   }
+
+  return {
+    default: Youtube,
+    css: css
+  };
 }));
