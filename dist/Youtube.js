@@ -248,7 +248,10 @@ THE SOFTWARE. */
         playerConfig.host = 'https://www.youtube-nocookie.com';
       }
 
-      this.ytPlayer = new YT.Player(this.options_.techId, playerConfig);
+      var element = (this.el_ || document).querySelector('#' + this.options_.techId);
+      element = element || this.options_.techId;
+
+      this.ytPlayer = new YT.Player(element, playerConfig);
     },
 
     onPlayerReady: function() {
