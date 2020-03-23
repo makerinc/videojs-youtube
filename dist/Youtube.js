@@ -196,7 +196,7 @@ THE SOFTWARE. */
       }
 
       if (typeof this.options_.playsinline !== 'undefined') {
-        playerVars.playsinline = this.options_.playsinline;
+        playerVars.playsinline = this.options_.playsinline ? 1 : 0;
       }
 
       if (typeof this.options_.rel !== 'undefined') {
@@ -770,20 +770,20 @@ THE SOFTWARE. */
               '.vjs-youtube .vjs-poster { background-size: cover; }' +
               '.vjs-youtube-mobile .vjs-big-play-button { display: none; }';
 
-  function injectCss() {
-    var head = document.head || document.getElementsByTagName('head')[0];
+  // function injectCss() {
+  //   var head = document.head || document.getElementsByTagName('head')[0];
 
-    var style = document.createElement('style');
-    style.type = 'text/css';
+  //   var style = document.createElement('style');
+  //   style.type = 'text/css';
 
-    if (style.styleSheet){
-      style.styleSheet.cssText = css;
-    } else {
-      style.appendChild(document.createTextNode(css));
-    }
+  //   if (style.styleSheet){
+  //     style.styleSheet.cssText = css;
+  //   } else {
+  //     style.appendChild(document.createTextNode(css));
+  //   }
 
-    head.appendChild(style);
-  }
+  //   head.appendChild(style);
+  // }
 
   Youtube.apiReadyQueue = [];
 
@@ -802,5 +802,5 @@ THE SOFTWARE. */
   return {
     default: Youtube,
     css: css
-  }
+  };
 }));

@@ -196,7 +196,7 @@ THE SOFTWARE. */
       }
 
       if (typeof this.options_.playsinline !== 'undefined') {
-        playerVars.playsinline = this.options_.playsinline;
+        playerVars.playsinline = this.options_.playsinline ? 1 : 0;
       }
 
       if (typeof this.options_.rel !== 'undefined') {
