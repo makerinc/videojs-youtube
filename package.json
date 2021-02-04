@@ -27,9 +27,6 @@
     "validate": "npm ls",
     "version": "npm run build && git add -f dist"
   },
-  "pre-commit": [
-    "lint"
-  ],
   "devDependencies": {
     "http-server": "^0.10.0",
     "jasmine-core": "^2.3.4",
@@ -40,8 +37,5 @@
     "mkdirp": "^0.5.1",
     "precommit-hook": "^3.0.0",
     "uglify-js": "^3.4.6"
-  },
-  "dependencies": {
-    "video.js": "^5.6.0 || ^6.2.8 || ^7.0.2"
   }
 }
